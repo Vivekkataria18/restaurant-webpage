@@ -41,6 +41,7 @@ header {
     justify-content: none;
     padding: 0px;
     margin: 20px 80px;
+    position: relative;
 }
 .center-button {
     display: flex;
@@ -51,6 +52,7 @@ header {
     margin: 0 30px;
     cursor: pointer;
     justify-content: center;
+    position: relative;
 }
 
 .contact-card {
@@ -130,6 +132,7 @@ footer {
 .menu-item {
     background-color: #bcbcbc;
     font-weight: bold;
+    position: relative;
     color: #000000;
 }
 
