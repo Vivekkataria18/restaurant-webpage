@@ -1,0 +1,163 @@
+/* styles.css */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* width: 100%; */
+    position: relative;
+}
+
+header {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+    padding: 1rem;
+}
+
+.header-image-Left {
+    max-width: 100px; /* Set the maximum width of the center image */
+    height: auto;
+    position: absolute; /* Position the image absolutely */
+    padding: 0px -15px;
+    top: -1%; /* Center the image vertically */
+    left: 15px; /* Center the image horizontally */
+    border-image: 100px;
+    /*transform: translate(-20%, -20%); /* Center the image perfectly */
+}
+
+.button-container {
+    display: flex;
+    left: 15px;
+    align-items: right;
+    justify-content: right;
+    padding: 5px;
+}
+.button-card {
+    display: flex;
+    align-items: center;
+    justify-content: none;
+    padding: 0px;
+    margin: 20px 80px;
+}
+.center-button {
+    display: flex;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
+    margin: 0 30px;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.contact-card {
+    background-color: #bcbcbc;
+    align-items: auto;
+    text-align: center;
+    padding: 10px;
+    margin: 20px 10px;
+    border-radius: 20px;
+    width: 250px;
+    height: auto;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.header-button {
+    background-color: #b0b0b0;
+    text-size-adjust: auto;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
+    margin: 0 30px;
+    cursor: pointer;
+    position: left;
+    transition: background-color 0.3s;
+}
+
+.header-button:hover {
+    background-color: #aa7777;
+}
+.background-image {
+    background-image: url('parliament.png'); /* Replace with your image URL */
+    background-size: 650px 400px; /* Set the width and height */
+    background-repeat: no-repeat;
+    margin: 10px 40px;
+    /* background-position: center;  */
+    opacity: 0.6;
+    margin: 10px -10px;
+    height: 400px; /* Set the height */
+    width: 650px; /* Set the width */
+    margin: auto; /* Remove margin to fully shift it to the left */
+}
+h1 {
+    position: relative;
+    text-align: left;
+    font-size: 16px;
+    bottom: -50px;
+    margin: 0 11px;
+}
+
+main {
+    padding: 1rem;
+    background-color: #000000;
+}
+
+section {
+    background-color: #000000;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
+}
+/* style.css */
+/* Your existing styles here */
+
+.menu-item {
+    background-color: #bcbcbc;
+    font-weight: bold;
+    color: #000000;
+}
+
+.order-button {
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.order-button:hover {
+    background-color: #555;
+}
+
+.quantity {
+    margin: 0 10px;
+    text-align: center; /* Add some space between the quantity and buttons */
+}
+
+.price {
+    font-weight: bold;
+    text-align: center;
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 20px;
+}
+

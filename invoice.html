@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            background-color: #000000; /* Change the background to black */
+            background-image: url('bg2.jpg');
+            background-size: cover;
+            opacity: 1;
+            /* Center the content both horizontally and vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff; /* Set text color to white */
+        }
+        .invoice-box {
+            border: 3px solid #ffffff;
+            max-width: 400px;
+            max-height: 800px;
+            padding: 10px;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent black background to the box */
+        }
+        .invoice-header {
+            text-decoration: underline;
+            color: rgb(1, 94, 255); /* Set the header text color to blue */
+            text-align: center;
+            margin: 0;
+        }
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .invoice-table th, .invoice-table td {
+            border: 1px solid #ffffff;
+            padding: 8px;
+            text-align: left;
+        }
+        .invoice-text {
+            color: #000;
+            font-weight: bold;
+        }
+        .thankyou-message {
+            color: rgb(255, 0, 0); /* Set the "Thank you" message color to red */
+            font-weight: bold;
+            text-align: center;
+        }
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+#loading-logo {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <div id="loading-overlay">
+        <img src="logo.png" alt="Loading..." id="loading-logo">
+    </div>
+    <script>
+        // Simulate a delay (e.g., 2 seconds) before hiding the loading overlay
+        setTimeout(function () {
+            const loadingOverlay = document.querySelector('#loading-overlay'); // Change to #loading-overlay
+            loadingOverlay.style.display = 'none';
+        }, 2000); // Adjust the delay as needed
+    </script>
+    <div class="invoice-box">
+        <h1 class="invoice-header">Invoice</h1>
+        <br>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Qty.</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody class="invoice-text">
+                <script>
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const orderDetailsJSON = urlParams.get('orderDetails');
+                    const orderDetails = JSON.parse(decodeURIComponent(orderDetailsJSON));
+                
+                    let totalPrice = 0;
+                
+                    for (const item in orderDetails) {
+                        const { quantity, price } = orderDetails[item];
+                        const itemTotal = quantity * price;
+
+                        const row = document.createElement('tr');
+
+                        const foodItemCell = document.createElement('td');
+                        foodItemCell.textContent = item;
+                        row.appendChild(foodItemCell);
+
+                        const quantityCell = document.createElement('td');
+                        quantityCell.textContent = quantity;
+                        row.appendChild(quantityCell);
+
+                        const priceCell = document.createElement('td');
+                        priceCell.textContent = `$${price.toFixed(2)}`;
+                        row.appendChild(priceCell);
+
+                        document.querySelector('.invoice-table tbody').appendChild(row);
+                    
+                        totalPrice += itemTotal;
+                    }
+                
+                    const taxRate = 0.1;
+                    const taxAmount = totalPrice * taxRate;
+                    const grandTotal = totalPrice + taxAmount;
+
+                    const taxRow = document.createElement('tr');
+                    const taxLabelCell = document.createElement('td');
+                    taxLabelCell.textContent = 'Tax (10%):';
+                    taxRow.appendChild(taxLabelCell);
+                    const taxAmountCell = document.createElement('td');
+                    taxAmountCell.textContent = '';
+                    taxRow.appendChild(taxAmountCell);
+                    const taxValueCell = document.createElement('td');
+                    taxValueCell.textContent = `$${taxAmount.toFixed(2)}`;
+                    taxRow.appendChild(taxValueCell);
+                    document.querySelector('.invoice-table tbody').appendChild(taxRow);
+
+                    const totalRow = document.createElement('tr');
+                    const totalLabelCell = document.createElement('td');
+                    totalLabelCell.textContent = 'Total:';
+                    totalRow.appendChild(totalLabelCell);
+                    const totalAmountCell = document.createElement('td');
+                    totalAmountCell.textContent = '';
+                    totalRow.appendChild(totalAmountCell);
+                    const totalValueCell = document.createElement('td');
+                    totalValueCell.textContent = `$${grandTotal.toFixed(2)}`;
+                    totalRow.appendChild(totalValueCell);
+                    document.querySelector('.invoice-table tbody').appendChild(totalRow);
+                </script>
+            </tbody>
+        </table>
+        <p class="thankyou-message">Thank you for your Visit!!</p> <!-- Change the color to green -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Local Restaurant</title>
+    <style>
+        h1{
+            text-decoration: underline;
+            color: aliceblue;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <br>
+        <img src="logo.png" alt="Center Image" class="header-image-Left" /><h1>Pie-Square</h1>
+        <!-- <br> -->
+            <div class="button-container">
+                <button class="header-button" onclick="window.location.href = 'index.html'">Home</button>
+                <button class="header-button" onclick="window.location.href = 'service.html'">Services</button>
+                <button class="header-button" onclick="window.location.href = 'contact.html'">Contact</button>
+                <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
+            </div>
+            <hr>
+        
+    </header>
+    <br>
+    <main>
+        <section id="food-section">
+            <div class="center-button"> <!-- Center the "Order Now" button -->
+                <button id="order-now">Order Now</button>
+            </div>
+            <div class="button-card">
+                <div class="contact-card">
+                    <h2>Food</h2>
+                    <ul id="food-menu-list">
+                        <li data-item="Pizza ">
+                            <span class="menu-item">Pizza</span>
+                            <button class="order-button" data-action="add"> +</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$12.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Burger">
+                            <span class="menu-item">Burger</span>
+                            <button class="order-button" data-action="add"> +</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price"> $10.99</span>
+                        </li>
+                        <br>   
+                        <li data-item="Pasta">
+                            <span class="menu-item">Pasta</span>
+                            <button class="order-button" data-action="add">+</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$8.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Subway">
+                            <span class="menu-item">Subway</span>
+                            <button class="order-button" data-action="add">+</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$9.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Noodles">
+                            <span class="menu-item">Noodles</span>
+                            <button class="order-button" data-action="add">+</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$9.99</span>
+                        </li>
+                    </ul>
+                </div>
+            
+                <div class="contact-card">
+                    <h2>Beverages</h2>
+                    <ul id="beverage-menu-list">
+                        <li data-item="frappuccino">
+                            <span class="menu-item">frappuccino</span>
+                            <button class="order-button" data-action="add">+</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$8.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Espresso">
+                            <span class="menu-item">Espresso</span>
+                            <button class="order-button" data-action="add"> +</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$12.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Coffee">
+                            <span class="menu-item">Coffee</span>
+                            <button class="order-button" data-action="add">+</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$9.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Milk Tea">
+                            <span class="menu-item">Milk Tea</span>
+                            <button class="order-button" data-action="add">+</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price">$9.99</span>
+                        </li>
+                        <br>
+                        <li data-item="Latte">
+                            <span class="menu-item">Latte</span>
+                            <button class="order-button" data-action="add"> +</button>
+                            <span class="quantity">0</span>
+                            <button class="order-button" data-action="subtract">-</button>
+                            <span class="price"> $10.99</span>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Add a hidden form to send order details to the invoice page -->
+            <form id="order-form" action="invoice.html" method="post" target="_blank">
+                <input type="hidden" name="orderDetails">
+            </form>
+        </section>
+        <hr>
+        <section id="about">
+            <h2>About Us:</h2>
+            <p>Welcome to our Pie-Square restaurant! We serve delicious food in a cozy atmosphere.</p>
+            <p>Contact us at info@localrestaurant.com</p>
+        </section>
+    </main>
+    <script src="order.js"></script>
+</body>
+</html>
