@@ -3,141 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Local Restaurant</title>
+    <title>Homepage</title>
     <style>
-        h1{
-            text-decoration: underline;
-            color: aliceblue;
+        body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* width: 100%; */
+    position: relative;
+    }
+    h1 {
+    position: relative;
+    text-align: left;
+    font-size: 16px;
+    bottom: -50px;
+    margin: 0 11px;
+    text-decoration: underline;
+}
+    h2{
+        font-style: italic;
+    }
+    header {
+        background-color: #000000;
+        color: #ffffff;
+        text-align: left;
+        padding: 1rem;
+    }
+
+    .header-image-Left {
+        max-width: 100px; /* Set the maximum width of the center image */
+        height: auto;
+        position: absolute; /* Position the image absolutely */
+        padding: 0px -15px;
+        top: -1%; /* Center the image vertically */
+        left: 15px; /* Center the image horizontally */
+        border-image: 100px;
+        /*transform: translate(-20%, -20%); /* Center the image perfectly */
+    }
+
+    .button-container {
+        display: flex;
+        left: 15px;
+        align-items: right;
+        justify-content: right;
+        padding: 5px;
+    }
+    .button-card {
+        display: flex;
+        align-items: center;
+        justify-content: none;
+        padding: 0px;
+        margin: 20px 80px;
+    }
+    .header-button {
+    background-color: #b0b0b0;
+    text-size-adjust: auto;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
+    margin: 0 30px;
+    cursor: pointer;
+    position: left;
+    transition: background-color 0.3s;
+    }
+    .header-button:hover {
+    background-color: #aa7777;
+}
+    .container {
+        display: flex;
+        justify-content: flex-start; /* Align card to the left */
+        align-items: center;
+        height: 100vh;
+        padding-left: 20px; /* Optional padding for left alignment */
+    }
+
+        .card {
+            background-color: #3c0000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 35px;
+            margin: 20px 20px;
+            max-width: 180px;
+            max-height: 450px;
+            text-align: center;
+            max-width: 250px;
         }
-        
+        .card:hover {
+            background-color: #740000;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 4px;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .card p {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
     </style>
 </head>
 <body>
     <header>
         <br>
-        <img src="logo.png" alt="Center Image" class="header-image-Left" /><h1>Pie-Square</h1>
+        <img src="logo.png" alt="Center Image" class="header-image-Left" />
+        <h1>Pie-Square</h1>
         <!-- <br> -->
             <div class="button-container">
-                <button class="header-button" onclick="window.location.href = 'index.html'">Home</button>
-                <button class="header-button" onclick="window.location.href = 'service.html'">Services</button>
-                <button class="header-button" onclick="window.location.href = 'contact.html'">Contact</button>
+                <button class="header-button" onclick="window.location.href = 'Homepage.html'">Homepage</button>
+                <button class="header-button" onclick="window.location.href = 'menu1.html'">Menu</button>
+                <button class="header-button" onclick="window.location.href = 'Bill.html'">Bill</button>
                 <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
             </div>
             <hr>
+            <section>
+            <div class="container">
+                <div class="card">
+                    <img src="ladak.jpeg" alt="Image">
+                    <h2>White Hill Hotel,Ladak </h2>
+                    <p>A top view of Mountain from this Lovely Destination will make your trip a worth living.</p>
+                    <a href="hotel2.html" class="button">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="updaipu.jpg" alt="Image">
+                    <h2>Lake view Hotel,Udaipur</h2>
+                    <p>A to do Boating Restaurant to visit with you family.Enjoy a soothing sunset lakeside.</p>
+                    <a href="hotel1.html" class="button">Learn More</a>
+                </div>
+
+                <div class="card">
+                    <img src="shimla.jpg" alt="Image">
+                    <h2>Shimla Time's Hotel,Shimla</h2>
+                    <p>A top view of Mountain from this Lovely Restaurant to visit with you family.</p>
+                    <a href="hotel3.html" class="button">Learn More</a>
+                </div>
+                <div class="card">
+                    <img src="image_2 (1).jpg" alt="Image">
+                    <h2>The Taj Hotel,Agra</h2>
+                    <p>An Exotic Restaurant to visit with your family.Enjoy a soothing sunset. Visit Taj Mahal</p>
+                    <a href="hotel4.html" class="button">Learn More</a>
+                </div>
         
-    </header>
-    <br>
-    <main>
-        <section id="food-section">
-            <div class="center-button"> <!-- Center the "Order Now" button -->
-                <button id="order-now">Order Now</button>
             </div>
-            <div class="button-card">
-                <div class="contact-card">
-                    <h2>Food</h2>
-                    <ul id="food-menu-list">
-                        <li data-item="Pizza ">
-                            <span class="menu-item">Pizza</span>
-                            <button class="order-button" data-action="add"> +</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$12.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Burger">
-                            <span class="menu-item">Burger</span>
-                            <button class="order-button" data-action="add"> +</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price"> $10.99</span>
-                        </li>
-                        <br>   
-                        <li data-item="Pasta">
-                            <span class="menu-item">Pasta</span>
-                            <button class="order-button" data-action="add">+</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$8.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Subway">
-                            <span class="menu-item">Subway</span>
-                            <button class="order-button" data-action="add">+</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$9.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Noodles">
-                            <span class="menu-item">Noodles</span>
-                            <button class="order-button" data-action="add">+</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$9.99</span>
-                        </li>
-                    </ul>
-                </div>
-            
-                <div class="contact-card">
-                    <h2>Beverages</h2>
-                    <ul id="beverage-menu-list">
-                        <li data-item="frappuccino">
-                            <span class="menu-item">frappuccino</span>
-                            <button class="order-button" data-action="add">+</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$8.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Espresso">
-                            <span class="menu-item">Espresso</span>
-                            <button class="order-button" data-action="add"> +</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$12.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Coffee">
-                            <span class="menu-item">Coffee</span>
-                            <button class="order-button" data-action="add">+</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$9.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Milk Tea">
-                            <span class="menu-item">Milk Tea</span>
-                            <button class="order-button" data-action="add">+</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price">$9.99</span>
-                        </li>
-                        <br>
-                        <li data-item="Latte">
-                            <span class="menu-item">Latte</span>
-                            <button class="order-button" data-action="add"> +</button>
-                            <span class="quantity">0</span>
-                            <button class="order-button" data-action="subtract">-</button>
-                            <span class="price"> $10.99</span>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Add a hidden form to send order details to the invoice page -->
-            <form id="order-form" action="invoice.html" method="post" target="_blank">
-                <input type="hidden" name="orderDetails">
-            </form>
+            </section>
+        </header>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need assistance, please feel free to contact our customer support team at 1800-7200-2000.</p>
         </section>
-        <hr>
-        <section id="about">
-            <h2>About Us:</h2>
-            <p>Welcome to our Pie-Square restaurant! We serve delicious food in a cozy atmosphere.</p>
-            <p>Contact us at info@localrestaurant.com</p>
-        </section>
-    </main>
-    <script src="order.js"></script>
+    </footer>
+    
 </body>
 </html>
