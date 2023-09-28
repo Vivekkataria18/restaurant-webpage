@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Redirect to the invoice page with order details as query parameters
             const queryParams = encodeURIComponent(JSON.stringify(orderDetails));
-            window.location.href = `invoice.html?orderDetails=${queryParams}`;
+            window.location.href = `Bill.html?orderDetails=${queryParams}`;
             
             // Reset order details
             orderDetails = {};

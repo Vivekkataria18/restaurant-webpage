@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Hospitality</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: rgb(0, 0, 0); /* Set background color to black */
+            color: rgb(255, 255, 255); /* Set text color to white */
+            font-style: italic; /* Set font style to italic */
+        }
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        nav {
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .image-slider-container {
+            overflow: hidden;
+            width: 100%;
+        }
+        .image-slider {
+            display: flex;
+            animation: slide 7s linear infinite; /* Adjust the duration as needed */
+        }
+        .image-slider img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .room-type {
+            margin: 20px;
+        }
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            16.666% {
+                transform: translateX(0);
+            }
+            33.333% {
+                transform: translateX(-100%);
+            }
+            50% {
+                transform: translateX(-100%);
+            }
+            66.666% {
+                transform: translateX(-200%);
+            }
+            83.333% {
+                transform: translateX(-200%);
+            }
+            100% {
+                transform: translateX(-300%);
+            }
+        }
+        #booking {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.6); /* Add a semi-transparent black background */
+            padding: 20px;
+            margin: auto;
+            width: 50%; /* Adjust the width as needed */
+            position: relative;
+        }
+        #booking::before,
+        #booking::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 2px; /* Line height */
+            background-color: #ffffff; /* Line color */
+        }
+        #booking::before {
+            top: 0;
+        }
+        #booking::after {
+            bottom: 0;
+        }
+        .thankyou-message {
+            font-size: 24px;
+        }
+        .room-details {
+            font-size: 18px;
+        }
+        .total-price {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .price-breakdown {
+            font-size: 18px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Lake view Hotel,Udaipur </h1>
+        <p>Your Home Away From Home</p>
+        <p>24/7 Customer Support: 1-800-HOTEL-INFO</p>
+    </header>
+    <nav>
+        <a href="#rooms">Rooms</a>
+        <a href="Bookaroom.html">Book a Room</a> <!-- Link to the new booking page -->
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="image-slider-container">
+        <hr>
+        <div class="image-slider">
+            <img src="image1.jpg" alt="Hotel Room 1">
+            <img src="image2.jpg" alt="Hotel Room 2">
+            <img src="image6.png" alt="Hotel Room 3">
+            <img src="image1.jpg" alt="Hotel Room 1"> <!-- Added to loop back to the first image -->
+        </div>
+        <hr>
+    </div>
+    <section id="rooms">
+        <h1>Our Rooms</h1>
+        <div class="room-type">
+            <h3>Normal Room</h3>
+            <p>Enjoy a comfortable stay in our standard room.</p>
+            <p>Features:</p>
+            <ul>
+                <li>Single/Double Bed</li>
+                <li>Private Bathroom</li>
+                <li>TV</li>
+            </ul>
+        </div>
+        <div class="room-type">
+            <h3>Suite</h3>
+            <p>Experience luxury in our spacious suite.</p>
+            <p>Features:</p>
+            <ul>
+                <li>Two Double Beds</li>
+                <li>Mini Swimming Pool</li>
+                <li>Private Bathroom</li>
+                <li>TV</li>
+            </ul>
+        </div>
+    </section>
+    <!-- <section id="booking"> -->
+        <!-- <h2>Book a Room</h2> -->
+        <!-- <div class="booking-form" id="bookingForm"> -->
+            <!-- <form onsubmit="return prepareBookingData()"> -->
+                <!-- <label for="name">Name:</label> -->
+                <!-- <input type="text" id="name" name="name" required><br><br> -->
+                <!-- <label for="email">Email:</label> -->
+                <!-- <input type="email" id="email" name="email" required><br><br> -->
+                <!-- <label for="check-in">Check-In Date:</label> -->
+                <!-- <input type="date" id="check-in" name="check-in" required><br><br> -->
+                <!-- <label for="room-type">Room Type:</label> -->
+                <!-- <select id="room-type" name="room-type" required> -->
+                    <!-- <option value="normal">Normal Room</option> -->
+                    <!-- <option value="suite">Suite</option> -->
+                <!-- </select><br><br> -->
+                <!-- <input type="submit" value="Book Now"> -->
+            <!-- </form> -->
+        <!-- </div> -->
+    <!-- </section> -->
+    <footer>
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, please feel free to contact our customer support team at 1800-7200-2000.</p>
+        </section>
+    </footer>
+    <!-- <script>
+        function prepareBookingData() {
+            const name = document.getElementById("name").value;
+            const roomType = document.getElementById("room-type").value;
+            const basePrice = roomType === "normal" ? 2000 : 8000;
+            const gstRate = 0.18;
+            const gstAmount = basePrice * gstRate;
+            const totalPrice = basePrice + gstAmount;
+
+            const bookingForm = document.getElementById("bookingForm");
+            bookingForm.style.display = "none";
+
+            const bookingSection = document.getElementById("booking");
+
+            // Create a new div element for the "Thank You" message
+            const thankYouMessage = document.createElement("div");
+            thankYouMessage.innerHTML = `
+                <h2>Thank You for Booking, ${name}!</h2>
+                <p class="thankyou-message">Your room details:</p>
+                <p class="room-details">Room Number: A${Math.floor(Math.random() * (999 - 100 + 1)) + 100}</p>
+                <p class="room-details">Reception Landline: 1-800-HOTEL-RECEPTION</p>
+                <p class="room-details">Cleaning Staff Landline: 1-800-HOTEL-CLEANING</p>
+                <p class="room-details">Wi-Fi Password: YourWi-FiPassword</p>
+                <p class="total-price">Total Price:</p>
+                <div class="price-breakdown">
+                    <p>Base Price: ₹${basePrice.toFixed(2)}</p>
+                    <p>GST (18%): ₹${gstAmount.toFixed(2)}</p>
+                </div>
+                <p class="total-price">Net Total: ₹${totalPrice.toFixed(2)}</p>
+            `;
+
+            // Append the "Thank You" message to the existing content
+            bookingSection.appendChild(thankYouMessage);
+
+            // Prevent the form submission (to avoid page refresh)
+            return false;
+        }
+
+        // Function to show the booking form (if needed)
+        function showBookingForm() {
+            const bookingForm = document.getElementById("bookingForm");
+            bookingForm.style.display = "block";
+        }
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* width: 100%; */
+            position: relative;
+        }
+        h1 {
+            position: relative;
+            text-align: left;
+            font-size: 16px;
+            bottom: -50px;
+            margin: 0 11px;
+            text-decoration: underline;
+        }
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: left;
+            padding: 1rem;
+        }
+
+        .header-image-Left {
+            max-width: 100px; /* Set the maximum width of the center image */
+            height: auto;
+            position: absolute; /* Position the image absolutely */
+            padding: 0px -15px;
+            top: -1%; /* Center the image vertically */
+            left: 15px; /* Center the image horizontally */
+            border-image: 100px;
+        /*transform: translate(-20%, -20%); /* Center the image perfectly */
+        }
+
+        .button-container {
+            display: flex;
+            left: 15px;
+            align-items: right;
+            justify-content: right;
+            padding: 5px;
+        }   
+        .button-card {
+            display: flex;
+            align-items: center;
+            justify-content: none;
+            padding: 0px;
+            margin: 20px 80px;
+        }
+        .header-button {
+            background-color: #b0b0b0;
+            text-size-adjust: auto;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 40px;
+            margin: 0 30px;
+            cursor: pointer;
+            position: left;
+            transition: background-color 0.3s;
+        }
+        .header-button:hover {
+            background-color: #aa7777;
+        }
+        .invoice-box {
+            border: 3px solid #ffffff;
+            max-width: 300px;
+            max-height: 800px;
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent black background to the box */
+        }
+        .invoice-header {
+            text-decoration: underline;
+            position: relative;
+            color: rgb(1, 94, 255); /* Set the header text color to blue */
+            text-align: center;
+            top: 10px;
+            margin: 10px;
+        }
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .invoice-table th, .invoice-table td {
+            border: 1px solid #ffffff;
+            padding: 8px;
+            text-align: left;
+        }
+        .invoice-text {
+            color: #000;
+            font-weight: bold;
+        }
+        .thankyou-message {
+            color: rgb(255, 0, 0); /* Set the "Thank you" message color to red */
+            font-weight: bold;
+            text-align: center;
+        }
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            z-index: 1000;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 1;
+        }
+
+#loading-logo {
+    width: 100px; /* Adjust the width as needed */
+    height: 100px; /* Adjust the height as needed */
+    animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <br>
+        <img src="logo.png" alt="Center Image" class="header-image-Left" /><h1>Pie-Square</h1>
+        <!-- <br> -->
+            <div class="button-container">
+                <button class="header-button" onclick="window.location.href = 'index.html'">Homepage</button>
+                <button class="header-button" onclick="window.location.href = 'menu1.html'">Menu</button>
+                <button class="header-button" onclick="window.location.href = 'Bill.html'">Bill</button>
+                <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
+            </div>
+            <hr>
+        
+    </header>
+    <div id="loading-overlay">
+        <img src="logo.png" alt="Loading..." id="loading-logo">
+    </div>
+    
+    <script>
+        // Simulate a delay (e.g., 2 seconds) before hiding the loading overlay
+        setTimeout(function () {
+            const loadingOverlay = document.querySelector('#loading-overlay'); // Change to #loading-overlay
+            loadingOverlay.style.display = 'none';
+        }, 2000); // Adjust the delay as needed
+    </script>
+    <div class="invoice-box">
+        <h1 class="invoice-header">Invoice</h1>
+        <br>
+        <!-- Add a discount input field -->
+        <div style="text-align: center;">
+            <label for="discount">Discount Percentage:</label>
+            <input type="number" id="discount" name="discount" min="0" max="100" step="1" value="0">
+            <button onclick="calculateInvoice()">Apply Discount</button>
+        </div>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Food Item</th>
+                    <th>Qty.</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody class="invoice-text">
+                <script>
+                    function calculateInvoice() {
+                        const discountPercentage = parseFloat(document.getElementById('discount').value);
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const orderDetailsJSON = urlParams.get('orderDetails');
+                        const orderDetails = JSON.parse(decodeURIComponent(orderDetailsJSON));
+                    
+                        let totalPrice = 0;
+                    
+                        for (const item in orderDetails) {
+                            const { quantity, price } = orderDetails[item];
+                            const itemTotal = quantity * price;
+
+                            const row = document.createElement('tr');
+
+                            const foodItemCell = document.createElement('td');
+                            foodItemCell.textContent = item;
+                            row.appendChild(foodItemCell);
+
+                            const quantityCell = document.createElement('td');
+                            quantityCell.textContent = quantity;
+                            row.appendChild(quantityCell);
+
+                            const priceCell = document.createElement('td');
+                            priceCell.textContent = `$${price.toFixed(2)}`;
+                            row.appendChild(priceCell);
+
+                            document.querySelector('.invoice-table tbody').appendChild(row);
+                        
+                            totalPrice += itemTotal;
+                        }
+
+                        // Apply discount
+                        const discountAmount = (discountPercentage / 100) * totalPrice;
+                        const discountedTotal = totalPrice - discountAmount;
+
+                        const discountRow = document.createElement('tr');
+                        const discountLabelCell = document.createElement('td');
+                        discountLabelCell.textContent = 'Discount (' + discountPercentage + '%):';
+                        discountRow.appendChild(discountLabelCell);
+                        const discountAmountCell = document.createElement('td');
+                        discountAmountCell.textContent = '';
+                        discountRow.appendChild(discountAmountCell);
+                        const discountValueCell = document.createElement('td');
+                        discountValueCell.textContent = `$${discountAmount.toFixed(2)}`;
+                        discountRow.appendChild(discountValueCell);
+                        document.querySelector('.invoice-table tbody').appendChild(discountRow);
+
+                        const taxRate = 0.1;
+                        const taxAmount = discountedTotal * taxRate;
+                        const grandTotal = discountedTotal + taxAmount;
+
+                        const taxRow = document.createElement('tr');
+                        const taxLabelCell = document.createElement('td');
+                        taxLabelCell.textContent = 'Tax (10%):';
+                        taxRow.appendChild(taxLabelCell);
+                        const taxAmountCell = document.createElement('td');
+                        taxAmountCell.textContent = '';
+                        taxRow.appendChild(taxAmountCell);
+                        const taxValueCell = document.createElement('td');
+                        taxValueCell.textContent = `$${taxAmount.toFixed(2)}`;
+                        taxRow.appendChild(taxValueCell);
+                        document.querySelector('.invoice-table tbody').appendChild(taxRow);
+
+                        const totalRow = document.createElement('tr');
+                        const totalLabelCell = document.createElement('td');
+                        totalLabelCell.textContent = 'Total:';
+                        totalRow.appendChild(totalLabelCell);
+                        const totalAmountCell = document.createElement('td');
+                        totalAmountCell.textContent = '';
+                        totalRow.appendChild(totalAmountCell);
+                        const totalValueCell = document.createElement('td');
+                        totalValueCell.textContent = `$${grandTotal.toFixed(2)}`;
+                        totalRow.appendChild(totalValueCell);
+                        document.querySelector('.invoice-table tbody').appendChild(totalRow);
+                    }
+                </script>
+            </tbody>
+        </table>
+        <p class="thankyou-message">Thank you for your Visit!!</p> <!-- Change the color to green -->
+    </div>
+    <section id="about">
+        <hr>
+        <h2>About Us:</h2>
+        <p>Welcome to our Pie-Square restaurant! We serve delicious food in a cozy atmosphere.</p>
+        <p>Contact us at info@localrestaurant.com</p>
+    </section>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Room</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            text-align: center;
+            font-style: italic;
+        }
+        header {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: ita;
+            padding: 10px;
+        }
+        .header-image-Left {
+        max-width: 100px; /* Set the maximum width of the center image */
+        height: auto;
+        position: absolute; /* Position the image absolutely */
+        padding: 0px -15px;
+        top: -1%; /* Center the image vertically */
+        left: 15px; /* Center the image horizontally */
+        border-image: 100px;
+        /*transform: translate(-20%, -20%); /* Center the image perfectly */
+        }
+        .button-container {
+        display: flex;
+        left: 15px;
+        align-items: right;
+        justify-content: right;
+        padding: 5px;
+    }
+    .button-card {
+        display: flex;
+        align-items: center;
+        justify-content: none;
+        padding: 0px;
+        margin: 20px 80px;
+    }
+    .header-button {
+    background-color: #b0b0b0;
+    text-size-adjust: auto;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
+    margin: 0 30px;
+    cursor: pointer;
+    position: left;
+    transition: background-color 0.3s;
+    }
+    .header-button:hover {
+    background-color: #aa7777;
+}
+        h1 {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        h2 {
+            color: #000000;
+
+        }
+        h3 {
+            position: relative;
+            text-align: left;
+            font-size: 16px;
+            bottom: -50px;
+            margin: 0 20px;
+            text-decoration: underline;
+        }
+        .booking-form {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 10px #db808033;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #000000;
+            color: #ffffff;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        footer {
+            background-color: #000000;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <br>
+        <img src="logo.png" alt="Center Image" class="header-image-Left" />
+        <h3>Pie-Square</h3>
+        <!-- <br> -->
+            <div class="button-container">
+                <button class="header-button" onclick="window.location.href = 'Homepage.html'">Homepage</button>
+                <button class="header-button" onclick="window.location.href = 'menu1.html'">Menu</button>
+                <button class="header-button" onclick="window.location.href = 'Bill.html'">Bill</button>
+                <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
+            </div>
+            <hr>
+        <h1>Booking Details</h1>
+    </header>
+    <hr>
+    <section id="booking">
+        <h2>Book a Room</h2>
+        <div class="booking-form" id="bookingForm">
+            <form onsubmit="return prepareBookingData()">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="check-in">Check-In Date:</label>
+                <input type="date" id="check-in" name="check-in" required><br><br>
+                <label for="check-out">Check-Out Date:</label>
+                <input type="date" id="check-out" name="check-out" required><br><br>
+                <label for="room-type">Room Type:</label>
+                <select id="room-type" name="room-type" required>
+                    <option value="Delux">Delux </option>
+                    <option value="Suite">Suite </option>
+                </select><br><br>
+                <input type="submit" value="Book Now">
+            </form>
+        </div>
+    </section>
+    <script>
+        // Function to calculate the number of days between two dates
+        function calculateNumberOfDays(checkInDate, checkOutDate) {
+            const oneDay = 24 * 60 * 60 * 1000; // One day in milliseconds
+            const startDate = new Date(checkInDate);
+            const endDate = new Date(checkOutDate);
+            const numberOfDays = Math.round((endDate - startDate) / oneDay);
+            return numberOfDays;
+        }
+
+        // Function to process booking data and display a bill
+        function prepareBookingData() {
+            const name = document.getElementById("name").value;
+            const roomType = document.getElementById("room-type").value;
+            const checkInDate = document.getElementById("check-in").value;
+            const checkOutDate = document.getElementById("check-out").value;
+
+            const numberOfDays = calculateNumberOfDays(checkInDate, checkOutDate);
+            const basePrice = roomType === "normal" ? 2000 : 8000;
+            const totalRoomPrice = basePrice * numberOfDays;
+            const gstRate = 0.18;
+            const gstAmount = totalRoomPrice * gstRate;
+            const totalPrice = totalRoomPrice + gstAmount;
+
+            const bookingForm = document.getElementById("bookingForm");
+            bookingForm.style.display = "none";
+
+            const bookingSection = document.getElementById("booking");
+
+            // Create a new div element for the bill
+            const billMessage = document.createElement("div");
+            billMessage.innerHTML = `
+                <h2>Booking Details for: ${name}</h2>
+                <p>Check-In Date: ${checkInDate}</p>
+                <p>Check-Out Date: ${checkOutDate}</p>
+                <p>Room Type: ${roomType === "normal" ? "Normal Room" : "Suite"}</p>
+                <p>Number of Days: ${numberOfDays}</p>
+                <p class="total-price">Total Room Price: ₹${totalRoomPrice.toFixed(2)}</p>
+                <div class="price-breakdown">
+                    <p>Base Price: ₹${basePrice.toFixed(2)}</p>
+                    <p>GST (18%): ₹${gstAmount.toFixed(2)}</p>
+                </div>
+                <hr>
+                <h2 class="total-price">Net Total: ₹${totalPrice.toFixed(2)}</h2>
+                <hr>
+                <h2>Thank you for booking with us!</h2>
+            `;
+
+            // Append the bill to the booking section
+            bookingSection.appendChild(billMessage);
+
+            // Prevent the form submission (to avoid page refresh)
+            return false;
+        }
+        
+
+    </script>
+    <footer>
+        <section id="contact">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, please feel free to contact our customer support team at 1800-7200-2000.</p>
+        </section>
+    </footer>
+</body>
+</html>

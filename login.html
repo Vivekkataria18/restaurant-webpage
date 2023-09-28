@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Information Cards</title>
+    <style>
+        body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    /* width: 100%; */
+    position: relative;
+    }
+    h1 {
+    position: relative;
+    text-align: left;
+    font-size: 16px;
+    bottom: -50px;
+    margin: 0 11px;
+    text-decoration: underline;
+}
+    header {
+        background-color: #000000;
+        color: #ffffff;
+        text-align: left;
+        padding: 1rem;
+    }
+
+    .header-image-Left {
+        max-width: 100px; /* Set the maximum width of the center image */
+        height: auto;
+        position: absolute; /* Position the image absolutely */
+        padding: 0px -15px;
+        top: -1%; /* Center the image vertically */
+        left: 15px; /* Center the image horizontally */
+        border-image: 100px;
+        /*transform: translate(-20%, -20%); /* Center the image perfectly */
+    }
+
+    .button-container {
+        display: flex;
+        left: 15px;
+        align-items: right;
+        justify-content: right;
+        padding: 5px;
+    }
+    .button-card {
+        display: flex;
+        align-items: center;
+        justify-content: none;
+        padding: 0px;
+        margin: 20px 80px;
+    }
+    .header-button {
+    background-color: #b0b0b0;
+    text-size-adjust: auto;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 40px;
+    margin: 0 30px;
+    cursor: pointer;
+    position: left;
+    transition: background-color 0.3s;
+    }
+    .header-button:hover {
+    background-color: #aa7777;
+}
+
+        .login-form {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Add some transparency for better visibility */
+    border-radius: 10px;
+    }
+
+/* Update the button styles within the login form */
+    .login-form button {
+    width: 107%;
+    background-color: #5cc69a;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border: none;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <br>
+        <img src="logo.png" alt="Center Image" class="header-image-Left" />
+        <h1>Pie-Square</h1>
+        <!-- <br> -->
+            <div class="button-container">
+                <button class="header-button" onclick="window.location.href = 'Homepage.html'">Homepage</button>
+                <button class="header-button" onclick="window.location.href = 'menu1.html'">Menu</button>
+                <button class="header-button" onclick="window.location.href = 'Bill.html'">Bill</button>
+                <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
+            </div>
+            <hr>
+    </header>
+    <div class="login-form">
+        <label for="loginField">Username/Phone Number/Email ID:</label>
+        <input type="text" id="loginField" placeholder="Enter username/phone/email" />
+        <br>
+        <br>
+        <label for="passwordField">Password:</label>
+        <br>
+        <input type="password" id="passwordField" placeholder="Enter password" />
+        <br>
+        <br>
+        <a href="Homepage.html">Homepage</button>
+    </div></a>
+    
+    <!-- ... (rest of your content) ... -->
+</main>
+<section id="about">
+    <hr>
+    <h2>About Us:</h2>
+    <p>Welcome to our Pie-Square restaurant! We serve delicious food in a cozy atmosphere.</p>
+    <p>Contact us at info@localrestaurant.com</p>
+</section>
+
+<!-- <script src="script.js"></script> -->
+</body>
+</html>

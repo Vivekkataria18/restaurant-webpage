@@ -41,7 +41,6 @@ header {
     justify-content: none;
     padding: 0px;
     margin: 20px 80px;
-    position: relative;
 }
 .center-button {
     display: flex;
@@ -65,6 +64,7 @@ header {
     width: 250px;
     height: auto;
     position: relative;
+    opacity: 1.1;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .header-button {
@@ -132,7 +132,6 @@ footer {
 .menu-item {
     background-color: #bcbcbc;
     font-weight: bold;
-    position: relative;
     color: #000000;
 }
 
