@@ -17,56 +17,42 @@
             background-color: #000000;
             color: #ffffff;
             text-align: center;
-            text-decoration: ita;
             padding: 10px;
         }
         .header-image-Left {
-        max-width: 100px; /* Set the maximum width of the center image */
-        height: auto;
-        position: absolute; /* Position the image absolutely */
-        padding: 0px -15px;
-        top: -1%; /* Center the image vertically */
-        left: 15px; /* Center the image horizontally */
-        border-image: 100px;
-        /*transform: translate(-20%, -20%); /* Center the image perfectly */
+            max-width: 100px;
+            height: auto;
+            position: absolute;
+            top: -1%;
+            left: 15px;
         }
         .button-container {
-        display: flex;
-        left: 15px;
-        align-items: right;
-        justify-content: right;
-        padding: 5px;
-    }
-    .button-card {
-        display: flex;
-        align-items: center;
-        justify-content: none;
-        padding: 0px;
-        margin: 20px 80px;
-    }
-    .header-button {
-    background-color: #b0b0b0;
-    text-size-adjust: auto;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 20px;
-    padding: 12px 40px;
-    margin: 0 30px;
-    cursor: pointer;
-    position: left;
-    transition: background-color 0.3s;
-    }
-    .header-button:hover {
-    background-color: #aa7777;
-}
+            display: flex;
+            align-items: center;
+            justify-content: flex-end; /* Updated alignment to the right */
+            padding: 5px;
+        }
+        .header-button {
+            background-color: #b0b0b0;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 40px;
+            margin: 0 10px;
+            cursor: pointer;
+            position: left;
+            transition: background-color 0.3s;
+        }
+        .header-button:hover {
+            background-color: #aa7777;
+        }
         h1 {
             color: #ffffff;
             text-decoration: underline;
         }
         h2 {
             color: #000000;
-
         }
         h3 {
             position: relative;
@@ -81,6 +67,7 @@
             padding: 20px;
             margin: 20px auto;
             width: 80%;
+            max-width: 600px; /* Set a max width for the form */
             border-radius: 8px;
             box-shadow: 0 0 10px #db808033;
         }
@@ -91,17 +78,11 @@
         }
         input[type="text"],
         input[type="email"],
-        input[type="date"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
+        input[type="date"],
         select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
@@ -122,22 +103,29 @@
             text-align: center;
             padding: 20px;
         }
+
+        /* Responsive styles for smaller screens (e.g., mobile devices) */
+        @media screen and (max-width: 768px) {
+            .header-button {
+                margin: 0 5px; /* Adjust margin for smaller screens */
+            }
+            h3 {
+                text-align: center; /* Center the h3 for smaller screens */
+                bottom: 0;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <br>
         <img src="logo.png" alt="Center Image" class="header-image-Left" />
         <h3>Pie-Square</h3>
-        <!-- <br> -->
-            <div class="button-container">
-                <button class="header-button" onclick="window.location.href = 'Homepage.html'">Homepage</button>
-                <button class="header-button" onclick="window.location.href = 'menu1.html'">Menu</button>
-                <button class="header-button" onclick="window.location.href = 'Bill.html'">Bill</button>
-                <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
-            </div>
-            <hr>
-        <h1>Booking Details</h1>
+        <div class="button-container">
+            <button class="header-button" onclick="window.location.href = 'index.html'">Homepage</button>
+            <button class="header-button" onclick="window.location.href = 'menu1.html'">Menu</button>
+            <button class="header-button" onclick="window.location.href = 'Bill.html'">Bill</button>
+            <button class="header-button" onclick="window.location.href = 'login.html'">Login</button>
+        </div>
     </header>
     <hr>
     <section id="booking">
@@ -154,8 +142,8 @@
                 <input type="date" id="check-out" name="check-out" required><br><br>
                 <label for="room-type">Room Type:</label>
                 <select id="room-type" name="room-type" required>
-                    <option value="Delux">Delux </option>
-                    <option value="Suite">Suite </option>
+                    <option value="Delux">Delux</option>
+                    <option value="Suite">Suite</option>
                 </select><br><br>
                 <input type="submit" value="Book Now">
             </form>
@@ -215,8 +203,6 @@
             // Prevent the form submission (to avoid page refresh)
             return false;
         }
-        
-
     </script>
     <footer>
         <section id="contact">
